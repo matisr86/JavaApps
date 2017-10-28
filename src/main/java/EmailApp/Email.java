@@ -12,7 +12,6 @@ public class Email {
 	private int mailboxCapacity ; 
 	private String alternativeEmail ; 
 	private String companySuffix = "polkongres.pl" ; 
-	private int defaultPasswordLength ; 
 	private int length = 8 ; 
 	
 	Scanner sc = new Scanner (System.in) ; 
@@ -24,6 +23,7 @@ public class Email {
 		email = setEmail() ; 
 		alternativeEmail = setAlternativeEmail() ; 
 		password = generatePassword(length) ; 
+		setMailboxCapacity() ; 
 		
 	}		
 	
@@ -36,12 +36,18 @@ public class Email {
 		else return "" ; 
 	}
 	
+	
+	public int setMailboxCapacity () { 
+		System.out.println("Set mailbox capacity"); 
+		mailboxCapacity = sc.nextInt() ;
+		return mailboxCapacity ; 
+	}
 	private String setEmail() {
 		email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "." + companySuffix ;
 		return email; 
 	}
 	
-	private String setAlternativeEmail () {
+	public String setAlternativeEmail () {
 		System.out.println("Set alternative email addres: ");
 		alternativeEmail = sc.next() ; 
 		return alternativeEmail ; 
@@ -57,13 +63,45 @@ public class Email {
 		}
 		return new String (password) ; 
 	}
+	
+	public void changePassword () {
+		System.out.println("Confirm old password: ");
+		 
+		String oldPassword = sc.next() ; 
+		if ( oldPassword.equals(password)) {
+			
+			System.out.println("Set new password: ");
+			String newPassword1 = sc.next() ; 
+			System.out.println("Confirm new password: ");
+			String newPassword2 = sc.next() ; 
+			if (newPassword1.equals(newPassword2) ) {
+				password = newPassword1 ; 
+				System.out.println("Password has beeb changed");
+				
+			}
+			else {
+				System.out.println("Password mismatch, please try again");
+				
+			}
+		}
+			
+		else { System.out.println("Wrong passsword!");
+			
+		
+		}
+	}
+	
+
+	
+	
 	public void info () {
 		System.out.println("FIRST NAME: " + firstName +
 				"\nLAST NAME: " + lastName + 
 				"\nDEPARTMENT: " + department + 
 				"\nE-MAIL: " + email + 
 				"\nALTERNATIVE EMAIL: " + alternativeEmail + 
-				"\nPASSWORD: " + password);
+				"\nPASSWORD: " + password + 
+				"\n1MAILBOX CAPACITY: " + mailboxCapacity + " mb");
 	}
 }
 
