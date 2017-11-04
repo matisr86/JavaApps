@@ -78,7 +78,7 @@ public class Student {
 				 "\nGrade level: " + gradeYear + 
 				 "\nStudent ID: "  + studentID+ 
 				 "\nCourses Enrolled: " + courses + 
-				 "\nTuition Ballance: " + tuitionBallance + " zl"; 
+				 "\nTuition Ballance: " + tuitionBallance + " zl \n"; 
 	}
 }
 
