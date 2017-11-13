@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import java.awt.Toolkit;
+import java.awt.Color;
 
 public class Calculator {
 
@@ -47,6 +48,9 @@ public class Calculator {
 	 */
 	private void initialize() {
 		frmKalkulator = new JFrame();
+		frmKalkulator.setEnabled(false);
+		frmKalkulator.getContentPane().setBackground(Color.DARK_GRAY);
+		frmKalkulator.setBackground(Color.DARK_GRAY);
 		frmKalkulator.setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\Matis\\JAVA\\JavaApps\\mr1.png"));
 		frmKalkulator.setTitle("Kalkulator");
 		frmKalkulator.setBounds(100, 100, 253, 385);
@@ -54,6 +58,7 @@ public class Calculator {
 		frmKalkulator.getContentPane().setLayout(null);
 		
 		txtDisplay = new JTextField();
+		txtDisplay.setBackground(Color.DARK_GRAY);
 		txtDisplay.setFont(new Font("Calibri", Font.BOLD, 20));
 		txtDisplay.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtDisplay.setBounds(10, 11, 217, 32);
